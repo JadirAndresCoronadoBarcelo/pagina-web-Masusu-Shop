@@ -1,0 +1,35 @@
+:root{
+    --negro-carbon: #121212;
+    --grafito:#2D2D2D;
+    --gris-claro: #E0E0E0;
+    --gris-apagado: #C4C4C4;
+    --rojo-neon: #FF3333;
+    --rojo-vino: #BC1919; 
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    display: grid;
+    grid-template-areas: 
+    "header header  header header"
+    "main main main main"
+    "footer footer footer footer"
+    ;
+    grid-template-columns: 1fr;
+
+    background-color: var(--gris-claro);
+    
+    margin: 0px;
+}
+header{
+    grid-area: header;
+}
+main{
+    grid-area: main;
+}
+footer{
+    grid-area: footer;
+}
