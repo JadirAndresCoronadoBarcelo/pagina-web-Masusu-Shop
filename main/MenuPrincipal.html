@@ -1,127 +1,200 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Masusu Shop</title>
 
-        <!-- Enlace a Google Fonts -->
-         <link rel="preconnect" href="https://fonts.googleapis.com">
-         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
-        
-        <!-- iconos de boostrap -->
-         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
-        <!-- estilos --> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masusu Shop</title>
+    <link rel="icon" type="image/png" href="resources/Interface resoruces/header/MasusuShop_LOGO.png">
 
-        <!-- grid -->
-        <link rel="stylesheet" href="styles/grid.css">
+    <!-- Enlace a Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700;800&display=swap"
+        rel="stylesheet">
 
-        <!-- header -->
-         <link rel="stylesheet" href="styles/header.css">
+    <!-- iconos de boostrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-        <!-- footer -->
-         <link rel="stylesheet" href="styles/footer.css">
+    <!-- estilos -->
 
-        <!-- fin de los estilos -->   
-    </head>
-    <body>
-        <header>
-            <div id="logo">
-                <img src="resources/Interface resoruces/header/MasusuShop_LOGO.png" alt="MasusuShop_LOGO">
-                <p id="masusu">Masusu</p><p id="shop">Shop</p>
+    <!-- grid -->
+    <link rel="stylesheet" href="styles/grid.css">
+
+    <!-- header -->
+    <link rel="stylesheet" href="styles/header.css">
+
+    <!-- main -->
+    <link rel="stylesheet" href="styles/main.css">
+
+    <!-- footer -->
+    <link rel="stylesheet" href="styles/footer.css">
+
+    <!-- fin de los estilos -->
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <img src="resources/Interface resoruces/header/MasusuShop_LOGO.png" alt="MasusuShop_LOGO">
+            <p id="masusu">Masusu</p>
+            <p id="shop">Shop</p>
+        </div>
+
+        <div id="buscador">
+            <input type="text" placeholder="buscar">
+            <button><i class="bi bi-search lupa"></i></button>
+        </div>
+
+        <div id="esquinaSupDer">
+            <button><i class="bi bi-person-fill usuario"></i></button>
+            <button><i class="bi bi-cart-fill carrito"></i></button>
+        </div>
+
+        <section id="categorias">
+            <button class="categoriaNegro">
+                <p>
+                    Mouses
+                </p>
+                <img src="resources/Interface resoruces/header/categorias/mause seccion.gif" alt="mousesSeccion">
+            </button>
+            <button class="categoriaGrafito">
+                <p>
+                    Teclados
+                </p>
+                <img src="resources/Interface resoruces/header/categorias/Teclados seccion.gif" alt="tecladosSeccion">
+            </button>
+            <button class="categoriaNegro">
+                <p>
+                    Diademas
+                </p>
+                <img src="resources/Interface resoruces/header/categorias/diademas seccion.gif" alt="diademasSeccion">
+            </button>
+            <button class="categoriaGrafito">
+                <p>
+                    Sillas
+                </p>
+                <img src="resources/Interface resoruces/header/categorias/sillas gamer seccion.gif" alt="sillasSeccion">
+            </button>
+
+        </section>
+
+    </header>
+
+    <main>
+        <section id="caruselOfertas">
+            <button id="flechaIzq">
+                <i class="bi bi-arrow-left-circle-fill flecha"></i>
+            </button>
+
+            <!-- Contenedor que recorta la vista y oculta lo que sale de la pantalla -->
+    <div class="carrusel-ventana">
+        <div id="caruselPista">
+
+            <!-- Tarjetas originales -->
+            <div class="oferta-card" id="oferta1">
+                <img src="resources/Interface resoruces/main/oferta.jpg" alt="oferta 1">
             </div>
-
-            <div id="buscador">
-                <input type="text" placeholder="buscar">
-                <button><i class="bi bi-search lupa"></i></button>
+            <div class="oferta-card" id="oferta2">
+                <img src="resources/Interface resoruces/main/oferta.jpg" alt="oferta 2">
+            </div>
+            <div class="oferta-card" id="oferta3">
+                <img src="resources/Interface resoruces/main/oferta.jpg " alt="oferta 3">
             </div>
             
-            <div id="esquinaSupDer">
-                <button><i class="bi bi-person-fill usuario"></i></button>
-                <button><i class="bi bi-cart-fill carrito"></i></button>
+            <!-- Duplicadas para asegurar el bucle infinito sin espacios en blanco -->
+            <div class="oferta-card">
+                <img src="resources/Interface resoruces/main/oferta.jpg" alt="oferta 1 repetida">
             </div>
 
-            <section id="categorias">
-                <button class="categoriaNegro">
-                    <p>
-                        Mouses
-                    </p>
-                    <img src="resources/Interface resoruces/header/categorias/mause seccion.gif" alt="mousesSeccion">
-                </button>
-                <button class="categoriaGrafito">
-                    <p>
-                        Teclados
-                    </p>
-                    <img src="resources/Interface resoruces/header/categorias/Teclados seccion.gif" alt="tecladosSeccion">
-                </button>
-                <button class="categoriaNegro">
-                    <p>
-                        Diademas
-                    </p>
-                    <img src="resources/Interface resoruces/header/categorias/diademas seccion.gif" alt="diademasSeccion">
-                </button>
-                <button class="categoriaGrafito">
-                    <p>
-                        Sillas
-                    </p>
-                    <img src="resources/Interface resoruces/header/categorias/sillas gamer seccion.gif" alt="sillasSeccion">
-                </button>
+        </div>
+    </div>
 
-            </section>
-            
-        </header>
+            <button id="flechaDer">
+                <i class="bi bi-arrow-right-circle-fill flecha"></i>
+            </button>
+        </section>
+        <section id="productos">
 
-        <main>
-            <section id="caruselOfertas">
-                <img src="resources/Interface resoruces/main/Oferta(Ejemplo).jpg" alt="ofertaEjemplo">
-
-            </section>
-
-            <section id="productos">
-
-                <div class="productoCard">
-
+            <div class="productoCard">
+                <div class="productoContenido">
                     <img src="resources/Interface resoruces/main/MouseGamer(Ejemplo).jpg" alt="mouseEjemplo">
                     <h4>nombre del producto</h4>
-                    <p>XXX.XXX.XXX,XX</p>
+                    <p>XXX.XXX.XXX,XX $</p>
                 </div>
+            </div>
 
-            </section>
+            <div class="productoCard">
+
+                <img src="resources/Interface resoruces/main/MouseGamer(Ejemplo).jpg" alt="mouseEjemplo">
+                <h4>nombre del producto</h4>
+                <p>XXX.XXX.XXX,XX $</p>
+            </div>
             
-        </main>
-        <footer>
-            <h6>
-                No se trata simplemete de los compenetes, tambien la comodidad influye en la experiencia. 
-            </h6>
+            <div class="productoCard">
 
-            <section id="contactos">
+                <img src="resources/Interface resoruces/main/MouseGamer(Ejemplo).jpg" alt="mouseEjemplo">
+                <h4>nombre del producto</h4>
+                <p>XXX.XXX.XXX,XX $</p>
+            </div>
+            
+            <div class="productoCard">
 
-                <div class="redes">
+                <img src="resources/Interface resoruces/main/MouseGamer(Ejemplo).jpg" alt="mouseEjemplo">
+                <h4>nombre del producto</h4>
+                <p>XXX.XXX.XXX,XX $</p>
+            </div>
+            
+        </section>
 
-                    <p>+57 3XX XXX XXXX</p>
+    </main>
+    <footer>
+        <section id="moreInfo">
+            <h5>
+                No se trata simplemete <br>
+                de los <span>compenetes</span>,
+            </h5>
+            <h5>
+                tambien la <span>comodidad</span>
+                <br>influye en la experiencia.
+            </h5>
+        </section>
 
-                </div>
+        <section id="contactos">
 
-                <div class="redes">
+            <div class="redes">
 
-                    <p>@instagram.page</p>
+                <i class="bi bi-telephone-fill logoRed"></i>
+                <p>+57 3XX XXX XXXX</p>
 
-                </div>
+            </div>
 
-                <div class="redes">
+            <div class="redes">
 
-                    <p>facebook page</p>
-                </div>
+                <i class="bi bi-instagram logoRed"></i>
+                <p>@instagram.page</p>
 
-                <div class="redes">
+            </div>
 
-                    <p>correo@dominio.com</p>
-                </div>
+            <div class="redes">
 
-            </section>
-        </footer>
-        
-    </body>
+                <i class="bi bi-facebook logoRed"></i>
+                <p>facebook page</p>
+            </div>
+
+            <div class="redes">
+
+                <i class="bi bi-envelope-fill logoRed"></i>
+                <p>correo@dominio.com</p>
+            </div>
+
+        </section>
+
+        <section id="copyright">
+            <h6>Todo los derechos reservados por jadir coronado ©</h6>
+        </section>
+    </footer>
+
+</body>
+
 </html>

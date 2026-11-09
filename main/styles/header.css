@@ -17,7 +17,10 @@ header{
     "logo buscador esquinaSupDer"
     "categorias categorias categorias";
     grid-template-columns: 1fr 2fr 1fr;
+
     background-color: var(--rojo-neon);
+
+    width: 100vw;
 }
 #categorias{
     grid-area: categorias;
@@ -38,7 +41,7 @@ header{
 /* inicio del logo */
 #logo{
     display: flex;
-    margin: 5px;
+    justify-content: center;
 }
 
 #logo img{
@@ -67,11 +70,10 @@ header{
 /* inicio de la barra de busqueda */
 #buscador{
     display: flex;
-    align-items: center;
     background-color: var(--gris-claro);
     border-radius: 15px;
     height: 40px;
-    margin-top: 35px;
+    margin-top: 30px;
 }
 
 #buscador input{
@@ -112,7 +114,8 @@ header{
 /* inicio de los botones del la esquina superior derecha */
 #esquinaSupDer{
     display: flex;
-    align-items:center ;
+    align-items:center;
+    justify-content: center;
     justify-content: flex-end;
     padding-right: 30px;
 }
@@ -138,9 +141,11 @@ justify-self: end;
 background-color: var(--negro-carbon);
 cursor: pointer;
 transition: background-color 0.2s ease;
+transition: transform 0.2s ease;
 }
 
 #esquinaSupDer button:hover{
+    transform: scale(1.1);
     background-color: var(--grafito);
 }
 /* fin de los botones del la esquina superior derecha */
@@ -163,6 +168,7 @@ transition: background-color 0.2s ease;
     width: 200px;
     justify-content: center;
     transition: transform 0.2s ease;
+    cursor: pointer;
 }
 #categorias img{
     margin-left: 20px;
@@ -179,6 +185,7 @@ transition: background-color 0.2s ease;
 }
 
 #categorias button:hover{
+z-index: 20;
 transform: scale(1.1);
 }
 /* fin categorias */

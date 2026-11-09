@@ -1,0 +1,97 @@
+*{
+    box-sizing: border-box;
+}
+:root{
+    --negro-carbon: #121212;
+    --grafito:#2D2D2D;
+    --gris-claro: #E0E0E0;
+    --gris-apagado: #C4C4C4;
+    --rojo-neon: #FF3333;
+    --rojo-vino: #BC1919; 
+}
+
+/* fuente del texto normal de la pagina */
+
+footer{
+    color: var(--gris-claro);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+/* inicio del grid */
+footer{
+    display: grid;
+    grid-template-areas: 
+    "left right"
+    "left right"
+    "bottom bottom";
+
+    grid-template-columns: 1fr 1fr;
+
+    background-color: var(--rojo-neon);
+    width: 100vw;
+}
+#moreInfo{
+    grid-area:left;
+}
+#contactos{
+    grid-area: right;
+}
+
+#copyright{
+    grid-area: bottom;
+}
+
+/* fin del grid */
+
+/* inicio del eslogan */
+#moreInfo h5{
+    font-family: 'Poppins', sans-serif;
+    font-size: 45px;
+    font-weight: 800;    
+    line-height: 1.2;
+    color: var(--gris-claro);
+    margin-top: 20px;
+    margin-bottom: 1px;
+    margin-left: 20px;
+}
+#moreInfo h5 span{
+    color: var(--negro-carbon);
+}
+/* fin del eslogan */
+
+/* inicio de los contactos */
+#contactos{
+display: flex;
+flex-wrap: wrap;    
+justify-content: center;
+margin-top: 20px;
+margin-right: 20px;
+gap: 20px;
+} 
+
+.redes{
+    justify-content: center;
+    display: flex;
+    background-color: var(--rojo-vino);
+    padding-top: 25px;
+    border-radius: 30px; 
+    height: 100px; 
+    flex: 1 1 300px;
+}
+
+.logoRed {
+    color: var(--negro-carbon);
+    font-size: 30px;
+    padding: 10px;
+    padding-top: 5px;
+}
+
+#copyright{
+    text-align: center;
+    font-size: 20px;
+    color: var(--gris-apagado);
+}
+
+/* fin de los contactos */
