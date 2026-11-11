@@ -1,0 +1,19 @@
+:root {
+    --negro-carbon: #121212;
+    --grafito: #2D2D2D;
+    --gris-claro: #E0E0E0;
+    --gris-apagado: #C4C4C4;
+    --rojo-neon: #FF3333;
+    --rojo-vino: #BC1919;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+main{
+    display: grid;
+    grid-template-areas: 
+    "vistaProducto"
+    "productos";
+}

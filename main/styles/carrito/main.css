@@ -42,35 +42,82 @@ main {
 
 
 #factura {
-    background-color: var(--gris-apagado) ;
+    background-color: var(--gris-apagado);
     display: grid;
-    grid-template-areas: 
-    "productos"
-    "pagar";
-    grid-template-rows: 6fr 4fr;
+    grid-template-areas:
+        "productos"
+        "pagar";
+    grid-template-rows: 4fr 3fr;
 }
 
-#factura ul{
+#factura ul {
     grid-area: productos;
 }
 
-#factura div{
+#factura div {
     grid-area: pagar;
-} 
-
-#factura div{
-    width: 400px;
-    justify-self: center    ;
 }
 
-#totalCompra{
+#factura div {
+    width: 400px;
+    justify-self: center;
+}
+
+
+#factura div {
+    position: absolute;
+    background-color: var(--gris-apagado);
+    width: 410px;
+    margin-top: 380px;
+}
+
+#totalCompra {
     text-align: center;
-    border-top: solid  2px var(--negro-carbon) ;
+    border-top: solid 2px var(--negro-carbon);
     font-size: 25px;
+    margin-bottom: 10px;
 }
 
 #pagarAhora {
     width: 400px;
     height: 75px;
-    justify-self: center    ;
+    justify-self: center;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--rojo-vino);
+    color: var(--gris-claro);
+    font-size: 20px;
+
+    transition: 0.2s ease;
+}
+
+#pagarAhora:hover {
+    transform: scale(1.05);
+}
+
+tbody tr td {
+    align-items: center;
+}
+
+.productoImg {
+    height: 100px;
+    width: 100px;
+    align-items: center;
+}
+
+#vistaProductos table {
+    margin: 40px;
+}
+
+#vistaProductos table tr th {
+    border-right: 1px solid var(--gris-apagado);
+    width: 250px;
+    text-align: center;
+    color: var(--grafito);
+}
+
+#vistaProductos tbody tr td {
+    text-align: center;
+    border-right: 1px solid var(--gris-apagado);
 }

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masusu Shop</title>
+    <link regil="icon" type="image/png" href="resources/Interface resoruces/header/MasusuShop_LOGO.png">
+
+    <!-- Enlace a Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- iconos de boostrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- estilos -->
+
+    <!-- grid -->
+    <link rel="stylesheet" href="styles/grid.css">
+
+    <!-- header -->
+    <link rel="stylesheet" href="styles/header.css">
+
+    <!-- main -->
+    <link rel="stylesheet" href="styles/productoVista/main.css">
+
+    <!-- footer -->
+    <link rel="stylesheet" href="styles/footer.css">
+
+    <!-- fin de los estilos -->
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <img src="resources/Interface resoruces/header/MasusuShop_LOGO.png" alt="MasusuShop_LOGO">
+            <p id="masusu">Masusu</p>
+            <p id="shop">Shop</p>
+        </div>
+
+        <div id="buscador">
+            <input type="text" placeholder="buscar">
+            <button><i class="bi bi-search lupa"></i></button>
+        </div>
+
+        <div id="esquinaSupDer">
+            <button><i class="bi bi-person-fill usuario"></i></button>
+            <button><i class="bi bi-cart-fill carrito"></i></button>
+        </div>
+
+        <section id="categorias">
+            <button class="categoriaNegro">
+                <p>
+                    Mouses
+                </p>
+                <img src="resources/Interface resoruces/header/categorias/mause seccion.gif" alt="mousesSeccion">
+            </button>
+            <button class="categoriaGrafito">
+                <p>
+                    Teclados
+                </p>
+                <img src="resources/Interface resoruces/header/categorias/Teclados seccion.gif" alt="tecladosSeccion">
+            </button>
+            <button class="categoriaNegro">
+                <p>
+                    Diademas
+                </p>
+                <img src="resources/Interface resoruces/header/categorias/diademas seccion.gif" alt="diademasSeccion">
+            </button>
+            <button class="categoriaGrafito">
+                <p>
+                    Sillas
+                </p>
+                <img src="resources/Interface resoruces/header/categorias/sillas gamer seccion.gif" alt="sillasSeccion">
+            </button>
+
+        </section>
+
+    </header>
+
+    <main>
+        <section id="vistaProducto">
+            <div id="imagenProducto">
+                <img src="resources/Interface resoruces/main/MouseGamer(Ejemplo).jpg" alt="producto">
+            </div>
+
+            <div id="informacionProducto">
+                <h3>Nombre del producto</h3>
+                <h2>XXX.XXX.XXX,XX$</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+            </div>
+            <div>
+                <button id="comprarAhora">Comprar ahora</button>
+                <button id="agregarCarrito">Agregar al carrito</button>
+
+                <div id="masInfo">
+                    <p>quedan X en stock</p>
+                    <p>pagos seguros</p>
+                    <p>envios en Bogota</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="productos">
+
+            <div class="productoCard">
+                <div class="productoContenido">
+                    <img src="resources/Interface resoruces/main/MouseGamer(Ejemplo).jpg" alt="mouseEjemplo">
+                    <h4>nombre del producto</h4>
+                    <p>XXX.XXX.XXX,XX $</p>
+                </div>
+            </div>
+
+            <div class="productoCard">
+
+                <img src="resources/Interface resoruces/main/MouseGamer(Ejemplo).jpg" alt="mouseEjemplo">
+                <h4>nombre del producto</h4>
+                <p>XXX.XXX.XXX,XX $</p>
+            </div>
+            
+            <div class="productoCard">
+
+                <img src="resources/Interface resoruces/main/MouseGamer(Ejemplo).jpg" alt="mouseEjemplo">
+                <h4>nombre del producto</h4>
+                <p>XXX.XXX.XXX,XX $</p>
+            </div>
+            
+            <div class="productoCard">
+
+                <img src="resources/Interface resoruces/main/MouseGamer(Ejemplo).jpg" alt="mouseEjemplo">
+                <h4>nombre del producto</h4>
+                <p>XXX.XXX.XXX,XX $</p>
+            </div>
+            
+        </section>
+    </main>
+    <footer>
+        <section id="moreInfo">
+            <h5>
+                No se trata simplemete <br>
+                de los <span>compenetes</span>,
+            </h5>
+            <h5>
+                tambien la <span>comodidad</span>
+                <br>influye en la experiencia.
+            </h5>
+        </section>
+
+        <section id="contactos">
+
+            <div class="redes">
+
+                <i class="bi bi-telephone-fill logoRed"></i>
+                <p>+57 3XX XXX XXXX</p>
+
+            </div>
+
+            <div class="redes">
+
+                <i class="bi bi-instagram logoRed"></i>
+                <p>@instagram.page</p>
+
+            </div>
+
+            <div class="redes">
+
+                <i class="bi bi-facebook logoRed"></i>
+                <p>facebook page</p>
+            </div>
+
+            <div class="redes">
+
+                <i class="bi bi-envelope-fill logoRed"></i>
+                <p>correo@dominio.com</p>
+            </div>
+
+        </section>
+
+        <section id="copyright">
+            <h6>Todo los derechos reservados por jadir coronado ©</h6>
+        </section>
+    </footer>
+
+</body>
+
+</html>
