@@ -1,0 +1,147 @@
+:root {
+    --negro-carbon: #121212;
+    --grafito: #2D2D2D;
+    --gris-claro: #E0E0E0;
+    --gris-apagado: #C4C4C4;
+    --rojo-neon: #FF3333;
+    --rojo-vino: #BC1919;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* fuente del texto del main */
+main {
+    color: var(--negro-carbon);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+/* inicio del grid */
+main {
+    display: grid;
+    grid-template-areas:
+        "top"
+        "bottom";
+    grid-template-columns: 1fr;
+}
+
+#categoriaPage {
+    grid-area: top;
+}
+
+#productos {
+    grid-area: bottom;
+}
+
+/* fin del grid */
+
+/* inicio del carrusel de ofertas */
+
+/* Contenedor principal de la sección */
+#categoriasPage {       
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+
+/* Ventana visible que enmarca el carrusel y oculta los elementos fuera de foco */
+.categoriaImgArea {
+    width: 100%;
+    max-width: 100vw;        
+}
+
+/* Las imágenes se adaptan perfectamente al contenedor */
+.categoriaImgArea img {
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;         
+}
+
+/* fin del carrusel de ofertas */
+
+/* inicio de los productos */
+#productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1 1 300px;
+    gap: 10px;
+}
+
+.productoCard {
+    position: relative;     
+    background-color: var(--gris-apagado);
+    z-index: 1;
+    border-radius: 20px;
+    margin: 30px;
+    cursor: pointer;
+    box-shadow: 0px 8px 20px var(--grafito);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 🌟 EFECTO DE SOMBRA / AURA RGB */
+.productoCard::before {
+    content: '';
+    position: absolute;
+    inset: -6px;               /* Sobresale un poco más de la carta para expandir la sombra */
+    border-radius: 24px;       /* Ligeramente más redondeado que la tarjeta */
+    
+    /* Gradiente con los colores RGB */
+    background: linear-gradient(45deg, #ff3333, #ff9900, #33cc33, #3399ff, #9933ff, #ff3333);
+    background-size: 400%;
+    
+    z-index: -1;               /* Se coloca estrictamente detrás de la tarjeta */
+    filter: blur(15px);        /* ✨ EL SECRETO: Difumina el gradiente convirtiéndolo en una sombra brillante */
+    opacity: 0;                /* Invisible por defecto */
+    transition: opacity 0.4s ease;
+}
+
+/* --- LO QUE SUCEDE AL PASAR EL MOUSE (HOVER) --- */
+.productoCard:hover::before {
+    opacity: 1;                /* Revela la sombra RGB con brillo */
+    animation: rgbAnimacion 3s linear infinite; /* Activa el movimiento fluido */
+}
+
+.productoCard:hover {
+    transform: translateY(-6px); /* Eleva sutilmente la tarjeta */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5); /* Sombra base más profunda para dar realismo */
+}
+
+/* Animación que desplaza el gradiente para crear el efecto dinámico */
+@keyframes rgbAnimacion {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.productoCard img {
+    height: 250px;
+    width: 250px;
+    padding: 20px 20px 0px 20px;
+}
+
+.productoCard h4 {
+    padding-left: 20px;
+    margin-top: 5px;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+.productoCard p {
+    padding-left: 20px;
+    font-weight: 800;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+/* fin de los productos */

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso - Masusu Shop</title>
+    <link rel="icon" type="image/png" href="resources/Interface resoruces/header/MasusuShop_LOGO.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Estilos específicos para la vista de acceso -->
+    <link rel="stylesheet" href="styles/login.css">
+
+    <script src="scripts/CambioVentanaLogin.js" defer></script>
+</head>
+
+<body>
+
+    <div class="auth-container">
+        <!-- Tarjeta principal de autenticación -->
+        <div class="auth-card">
+            
+            <!-- Logo y Cabecera -->
+            <div class="auth-header">
+                <img src="resources/Interface resoruces/header/MasusuShop_LOGO.png" alt="Masusu Shop Logo">
+                <h2>Masusu <span>Shop</span></h2>
+            </div>
+
+            <!-- Pestañas para alternar entre Login y Registro -->
+            <div class="auth-tabs">
+                <button class="tab-btn active" data-target="login-form">Iniciar Sesión</button>
+                <button class="tab-btn" data-target="register-form">Registrarse</button>
+            </div>
+
+            <!-- Formulario de Iniciar Sesión -->
+            <form id="login-form" class="auth-form active">
+                <div class="input-group">
+                    <i class="bi bi-envelope-fill"></i>
+                    <input type="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="input-group">
+                    <i class="bi bi-lock-fill"></i>
+                    <input type="password" placeholder="Contraseña" required>
+                </div>
+                <button type="submit" class="btn-submit">Entrar</button>
+            </form>
+
+            <!-- Formulario de Registro -->
+            <form id="register-form" class="auth-form">
+                <div class="input-group">
+                    <i class="bi bi-person-fill"></i>
+                    <input type="text" placeholder="Nombre completo" required>
+                </div>
+                <div class="input-group">
+                    <i class="bi bi-envelope-fill"></i>
+                    <input type="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="input-group">
+                    <i class="bi bi-lock-fill"></i>
+                    <input type="password" placeholder="Contraseña" required>
+                </div>
+                <button type="submit" class="btn-submit">Crear Cuenta</button>
+            </form>
+
+            <!-- Enlace para volver al inicio -->
+            <div class="auth-footer">
+                <a href="MenuPrincipal.html"><i class="bi bi-arrow-left"></i> Volver a la tienda</a>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

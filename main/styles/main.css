@@ -166,7 +166,6 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    flex: 1 1 300px;
     gap: 10px;
 }
 
@@ -240,6 +239,7 @@ main {
     padding-left: 20px;
     font-weight: 800;
     font-size: 20px;
+    padding-bottom: 10px;
 }
 
 /* fin de los productos */
