@@ -1,6 +1,6 @@
 import sqlite3
 
-conexion = sqlite3.connect("main/DataBase/masusuDataBase.db")
+conexion = sqlite3.connect("masusuDataBase.db")
 
 cursor = conexion.cursor()
 

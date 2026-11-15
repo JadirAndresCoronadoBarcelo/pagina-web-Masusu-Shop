@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diademas - Masusu Shop</title>
+    <title>Carrito - Masusu Shop</title>
     <link rel="icon" type="image/png" href="resources/Interface resoruces/header/MasusuShop_LOGO.png">
 
     <!-- Enlace a Google Fonts -->
@@ -19,27 +19,27 @@
     <!-- estilos -->
 
     <!-- grid -->
-    <link rel="stylesheet" href="styles/grid.css">
+    <link rel="stylesheet" href="../static/css/grid.css">
 
     <!-- header -->
-    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="../static/css/header.css">
 
     <!-- main -->
-    <link rel="stylesheet" href="styles/categoria/main.css">
+    <link rel="stylesheet" href="../static/css/carrito/main.css">
 
     <!-- footer -->
-    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
 
     <!-- fin de los estilos -->
 
-
+    <!-- scripts -->
 </head>
 
 <body>
     <header>
         <a href="MenuPrincipal.html">
             <div id="logo">
-                <img src="resources/Interface resoruces/header/MasusuShop_LOGO.png" alt="MasusuShop_LOGO">
+                <img src="../static/images/header/MasusuShop_LOGO.png" alt="MasusuShop_LOGO">
                 <p id="masusu">Masusu</p>
                 <p id="shop">Shop</p>
             </div>
@@ -62,7 +62,7 @@
                     <p>
                         Mouses
                     </p>
-                    <img src="resources/Interface resoruces/header/categorias/mause seccion.gif" alt="mousesSeccion">
+                    <img src="../static/images/header/categorias/mause seccion.gif" alt="mousesSeccion">
                 </button>
             </a>
             <a href="categoriaTeclados.html">
@@ -70,8 +70,7 @@
                     <p>
                         Teclados
                     </p>
-                    <img src="resources/Interface resoruces/header/categorias/Teclados seccion.gif"
-                        alt="tecladosSeccion">
+                    <img src="../static/images/header/categorias/Teclados seccion.gif" alt="tecladosSeccion">
                 </button>
             </a>
             <a href="categoriaDiademas.html">
@@ -79,8 +78,7 @@
                     <p>
                         Diademas
                     </p>
-                    <img src="resources/Interface resoruces/header/categorias/diademas seccion.gif"
-                        alt="diademasSeccion">
+                    <img src="../static/images/header/categorias/diademas seccion.gif" alt="diademasSeccion">
                 </button>
             </a>
 
@@ -89,56 +87,50 @@
                     <p>
                         Sillas
                     </p>
-                    <img src="resources/Interface resoruces/header/categorias/sillas gamer seccion.gif"
-                        alt="sillasSeccion">
+                    <img src="../static/images/header/categorias/sillas gamer seccion.gif" alt="sillasSeccion">
                 </button>
             </a>
 
         </section>
 
     </header>
-
     <main>
-        <section id="categoriaPage">
+        <section id="vistaProductos">
+
+            <table>
+                <tr>
+                    <th></th>
+                    <th>producto</th>
+                    <th>cantidad</th>
+                    <th>subtotal</th>
+                </tr>
+                <tbody>
+                    <tr>
+                        <td><img src="../static/images/main/MouseGamer(Ejemplo).jpg" alt="producto"
+                                class="productoImg"></td>
+                        <td>product name</td>
+                        <td>x</td>
+                        <td>XXX.XXX.XXX,XX$</td>
+                    </tr>
 
 
-            <div class="categoriaImgArea">
-                <img src="resources/Interface resoruces/main/oferta.jpg" alt="categoria">
-            </div>
-
-
+                </tbody>
+            </table>
         </section>
-        <section id="productos">
 
-            <div class="productoCard">
-                <div class="productoContenido">
-                    <img src="resources/Interface resoruces/main/MouseGamer(Ejemplo).jpg" alt="mouseEjemplo">
-                    <h4>nombre del producto</h4>
-                    <p>XXX.XXX.XXX,XX $</p>
-                </div>
+        <section id="factura">
+
+            <ul>
+                <li>producto:XXX.XXX.XXX,XX$ = TOTAL</li>
+                <li>producto:XXX.XXX.XXX,XX$ = TOTAL</li>
+            </ul>
+
+            <div>
+                <p id="totalCompra">TOTAL: XXX.XXX.XXX,XX</p>
+                <button id="pagarAhora">
+                    Pagar ahora
+                </button>
             </div>
-
-            <div class="productoCard">
-
-                <img src="resources/Interface resoruces/main/MouseGamer(Ejemplo).jpg" alt="mouseEjemplo">
-                <h4>nombre del producto</h4>
-                <p>XXX.XXX.XXX,XX $</p>
-            </div>
-
-            <div class="productoCard">
-
-                <img src="resources/Interface resoruces/main/MouseGamer(Ejemplo).jpg" alt="mouseEjemplo">
-                <h4>nombre del producto</h4>
-                <p>XXX.XXX.XXX,XX $</p>
-            </div>
-
-            <div class="productoCard">
-
-                <img src="resources/Interface resoruces/main/MouseGamer(Ejemplo).jpg" alt="mouseEjemplo">
-                <h4>nombre del producto</h4>
-                <p>XXX.XXX.XXX,XX $</p>
-            </div>
-
         </section>
 
     </main>
