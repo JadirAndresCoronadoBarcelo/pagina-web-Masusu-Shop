@@ -31,7 +31,7 @@
             
             <!-- Logo y Cabecera -->
             <div class="auth-header">
-                <img src="../static/images/header/MasusuShop_LOGO.png" alt="Masusu Shop Logo">
+                <img src="{{ url_for('static', filename='images/header/MasusuShop_LOGO.png') }}" alt="Masusu Shop Logo">
                 <h2>Masusu <span>Shop</span></h2>
             </div>
 
@@ -73,7 +73,7 @@
 
             <!-- Enlace para volver al inicio -->
             <div class="auth-footer">
-                <a href="MenuPrincipal.html"><i class="bi bi-arrow-left"></i> Volver a la tienda</a>
+                <a href="{{ url_for('menu_principal') }}"><i class="bi bi-arrow-left"></i> Volver a la tienda</a>
             </div>
 
         </div>`

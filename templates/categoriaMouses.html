@@ -37,9 +37,10 @@
 
 <body>
     <header>
-        <a href="MenuPrincipal.html">
+        <!-- Logo que redirige al menú principal -->
+        <a href="{{ url_for('menu_principal') }}">
             <div id="logo">
-                <img src="../static/images/header/MasusuShop_LOGO.png" alt="MasusuShop_LOGO">
+                <img src="{{ url_for('static', filename='images/header/MasusuShop_LOGO.png') }}" alt="MasusuShop_LOGO">
                 <p id="masusu">Masusu</p>
                 <p id="shop">Shop</p>
             </div>
@@ -50,52 +51,48 @@
             <button><i class="bi bi-search lupa"></i></button>
         </div>
 
+        <!-- Esquina superior derecha (Login y Carrito) -->
         <div id="esquinaSupDer">
-
-            <a href="login.html"> <button><i class="bi bi-person-fill usuario"></i></button></a>
-            <a href="carrito.html"><button><i class="bi bi-cart-fill carrito"></i></button></a>
+            <a href="{{ url_for('login') }}">
+                <button><i class="bi bi-person-fill usuario"></i></button>
+            </a>
+            <a href="{{ url_for('carrito') }}">
+                <button><i class="bi bi-cart-fill carrito"></i></button>
+            </a>
         </div>
 
+        <!-- Botones de Categorías en el Header -->
         <section id="categorias">
-            <a href="categoriaMouses.html">
+            <a href="{{ url_for('categoria_mouses') }}">
                 <button class="categoriaNegro">
-                    <p>
-                        Mouses
-                    </p>
-                    <img src="../static/images/header/categorias/mause seccion.gif" alt="mousesSeccion">
+                    <p>Mouses</p>
+                    <img src="{{ url_for('static', filename='images/header/categorias/mause seccion.gif') }}"
+                        alt="mousesSeccion">
                 </button>
             </a>
-            <a href="categoriaTeclados.html">
+            <a href="{{ url_for('categoria_teclados') }}">
                 <button class="categoriaGrafito">
-                    <p>
-                        Teclados
-                    </p>
-                    <img src="../static/images/header/categorias/Teclados seccion.gif"
+                    <p>Teclados</p>
+                    <img src="{{ url_for('static', filename='images/header/categorias/Teclados seccion.gif') }}"
                         alt="tecladosSeccion">
                 </button>
             </a>
-            <a href="categoriaDiademas.html">
+            <a href="{{ url_for('categoria_diademas') }}">
                 <button class="categoriaNegro">
-                    <p>
-                        Diademas
-                    </p>
-                    <img src="../static/images/header/categorias/diademas seccion.gif"
+                    <p>Diademas</p>
+                    <img src="{{ url_for('static', filename='images/header/categorias/diademas seccion.gif') }}"
                         alt="diademasSeccion">
                 </button>
             </a>
-
-            <a href="categoriaSillas.html">
+            <a href="{{ url_for('categoria_sillas') }}">
                 <button class="categoriaGrafito">
-                    <p>
-                        Sillas
-                    </p>
-                    <img src="../static/images/header/categorias/sillas gamer seccion.gif"
+                    <p>Sillas</p>
+                    <img src="{{ url_for('static', filename='images/header/categorias/sillas gamer seccion.gif') }}"
                         alt="sillasSeccion">
                 </button>
             </a>
-
         </section>
-
+        
     </header>
 
     <main>
@@ -103,56 +100,57 @@
 
 
             <div class="categoriaImgArea">
-                <img src="resources/Interface resoruces/main/oferta.jpg" alt="categoria">
+                <img src="{{url_for('static' , filename='images/bannersSecciones/mousesSeccion.jpg')}}" alt="categoria">
             </div>
 
 
         </section>
         <section id="productos">
 
-            <a href="productoVista.html">
+            <a href="{{ url_for('producto_vista') }}">
                 <div class="productoCard">
                     <div class="productoContenido">
-                        <img src="../static/images/main/MouseGamer(Ejemplo).jpg" alt="mouseEjemplo">
+                        <img src="{{ url_for('static', filename='images/main/MouseGamer(Ejemplo).jpg') }}"
+                            alt="mouseEjemplo">
                         <h4>nombre del producto</h4>
                         <p>XXX.XXX.XXX,XX $</p>
                     </div>
                 </div>
             </a>
 
-            
-            <a href="productoVista.html">
+            <a href="{{ url_for('producto_vista') }}">
                 <div class="productoCard">
                     <div class="productoContenido">
-                        <img src="../static/images/main/MouseGamer(Ejemplo).jpg" alt="mouseEjemplo">
+                        <img src="{{ url_for('static', filename='images/main/MouseGamer(Ejemplo).jpg') }}"
+                            alt="mouseEjemplo">
                         <h4>nombre del producto</h4>
                         <p>XXX.XXX.XXX,XX $</p>
                     </div>
                 </div>
             </a>
 
-            
-            <a href="productoVista.html">
+            <a href="{{ url_for('producto_vista') }}">
                 <div class="productoCard">
                     <div class="productoContenido">
-                        <img src="../static/images/main/MouseGamer(Ejemplo).jpg" alt="mouseEjemplo">
+                        <img src="{{ url_for('static', filename='images/main/MouseGamer(Ejemplo).jpg') }}"
+                            alt="mouseEjemplo">
                         <h4>nombre del producto</h4>
                         <p>XXX.XXX.XXX,XX $</p>
                     </div>
                 </div>
             </a>
 
-            
-            <a href="productoVista.html">
+            <a href="{{ url_for('producto_vista') }}">
                 <div class="productoCard">
                     <div class="productoContenido">
-                        <img src="../static/images/main/MouseGamer(Ejemplo).jpg" alt="mouseEjemplo">
+                        <img src="{{ url_for('static', filename='images/main/MouseGamer(Ejemplo).jpg') }}"
+                            alt="mouseEjemplo">
                         <h4>nombre del producto</h4>
                         <p>XXX.XXX.XXX,XX $</p>
                     </div>
                 </div>
             </a>
-            
+
         </section>
 
     </main>
