@@ -16,7 +16,7 @@
     <!-- iconos de boostrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-<!-- estilos -->
+    <!-- estilos -->
 
     <!-- grid -->
     <link rel="stylesheet" href="../static/css/grid.css">
@@ -36,7 +36,7 @@
 </head>
 
 <body>
-<header>
+    <header>
         <!-- Logo que redirige al menú principal -->
         <a href="{{ url_for('menu_principal') }}">
             <div id="logo">
@@ -54,23 +54,23 @@
         <!-- Esquina superior derecha (Login, Saludo y Carrito) -->
         <div id="esquinaSupDer">
             {% if session.get('nombre_usuario') %}
-                <!-- Si hay sesión activa: Muestra saludo y botón de salida con clases CSS -->
-                <div class="userLoggedInfo">
-                    <span>Hola, {{ session['nombre_usuario'] }}</span>
-                </div>
-                
-                <a href="{{ url_for('auth.logout') }}" title="Cerrar Sesión">
-                    <button class="btnLogout" title="Cerrar Sesión">
-                        <i class="bi bi-box-arrow-right usuario iconLogout"></i>
-                    </button>
-                </a>
+            <!-- Si hay sesión activa: Muestra saludo y botón de salida con clases CSS -->
+            <div class="userLoggedInfo">
+                <span>Hola, {{ session['nombre_usuario'] }}</span>
+            </div>
+
+            <a href="{{ url_for('auth.logout') }}" title="Cerrar Sesión">
+                <button class="btnLogout" title="Cerrar Sesión">
+                    <i class="bi bi-box-arrow-right usuario iconLogout"></i>
+                </button>
+            </a>
             {% else %}
-                <!-- Si NO hay sesión activa: Muestra el botón habitual de login -->
-                <a href="{{ url_for('login') }}" title="Iniciar Sesión / Registrarse">
-                    <button>
-                        <i class="bi bi-person-fill usuario"></i>
-                    </button>
-                </a>
+            <!-- Si NO hay sesión activa: Muestra el botón habitual de login -->
+            <a href="{{ url_for('login') }}" title="Iniciar Sesión / Registrarse">
+                <button>
+                    <i class="bi bi-person-fill usuario"></i>
+                </button>
+            </a>
             {% endif %}
 
             <!-- Carrito de compras -->
@@ -81,28 +81,28 @@
 
         <!-- Botones de Categorías en el Header -->
         <section id="categorias">
-            <a href="{{ url_for('categoria_mouses') }}">
+            <a href="{{ url_for('categorias.categoria_mouses') }}">
                 <button class="categoriaNegro">
                     <p>Mouses</p>
                     <img src="{{ url_for('static', filename='images/header/categorias/mause seccion.gif') }}"
                         alt="mousesSeccion">
                 </button>
             </a>
-            <a href="{{ url_for('categoria_teclados') }}">
+            <a href="{{ url_for('categorias.categoria_teclados') }}">
                 <button class="categoriaGrafito">
                     <p>Teclados</p>
                     <img src="{{ url_for('static', filename='images/header/categorias/Teclados seccion.gif') }}"
                         alt="tecladosSeccion">
                 </button>
             </a>
-            <a href="{{ url_for('categoria_diademas') }}">
+            <a href="{{ url_for('categorias.categoria_diademas') }}">
                 <button class="categoriaNegro">
                     <p>Diademas</p>
                     <img src="{{ url_for('static', filename='images/header/categorias/diademas seccion.gif') }}"
                         alt="diademasSeccion">
                 </button>
             </a>
-            <a href="{{ url_for('categoria_sillas') }}">
+            <a href="{{ url_for('categorias.categoria_sillas') }}">
                 <button class="categoriaGrafito">
                     <p>Sillas</p>
                     <img src="{{ url_for('static', filename='images/header/categorias/sillas gamer seccion.gif') }}"
@@ -125,52 +125,23 @@
         </section>
         <section id="productos">
 
-            <a href="{{ url_for('producto_vista') }}">
+            <!-- Bucle for de Jinja2 para recorrer los productos enviados desde Flask -->
+            {% for prod in productos %}
+            <a href="{{ url_for('categorias.producto_vista', id_producto=prod['id_producto']) }}">
                 <div class="productoCard">
                     <div class="productoContenido">
-                        <img src="{{ url_for('static', filename='images/main/MouseGamer(Ejemplo).jpg') }}"
-                            alt="mouseEjemplo">
-                        <h4>nombre del producto</h4>
-                        <p>XXX.XXX.XXX,XX $</p>
+                        <img src="{{ url_for('static', filename=prod['imagen']) }}" alt="{{ prod['producto'] }}">
+                        <h4>{{ prod['producto'] }}</h4>
+                        <p>{{ prod['precio'] }} $</p>
                     </div>
                 </div>
             </a>
-
-            <a href="{{ url_for('producto_vista') }}">
-                <div class="productoCard">
-                    <div class="productoContenido">
-                        <img src="{{ url_for('static', filename='images/main/MouseGamer(Ejemplo).jpg') }}"
-                            alt="mouseEjemplo">
-                        <h4>nombre del producto</h4>
-                        <p>XXX.XXX.XXX,XX $</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="{{ url_for('producto_vista') }}">
-                <div class="productoCard">
-                    <div class="productoContenido">
-                        <img src="{{ url_for('static', filename='images/main/MouseGamer(Ejemplo).jpg') }}"
-                            alt="mouseEjemplo">
-                        <h4>nombre del producto</h4>
-                        <p>XXX.XXX.XXX,XX $</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="{{ url_for('producto_vista') }}">
-                <div class="productoCard">
-                    <div class="productoContenido">
-                        <img src="{{ url_for('static', filename='images/main/MouseGamer(Ejemplo).jpg') }}"
-                            alt="mouseEjemplo">
-                        <h4>nombre del producto</h4>
-                        <p>XXX.XXX.XXX,XX $</p>
-                    </div>
-                </div>
-            </a>
+            {% else %}
+            <!-- Mensaje opcional por si la categoría no tuviera productos -->
+            <p>No hay productos disponibles en esta categoría.</p>
+            {% endfor %}
 
         </section>
-
     </main>
     <footer>
         <section id="moreInfo">

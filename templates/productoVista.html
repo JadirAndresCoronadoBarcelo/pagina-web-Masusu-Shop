@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masusu Shop</title>
+    <title>Mouses - Masusu Shop</title>
     <link rel="icon" type="image/png" href="resources/Interface resoruces/header/MasusuShop_LOGO.png">
 
     <!-- Enlace a Google Fonts -->
@@ -55,23 +55,23 @@
         <!-- Esquina superior derecha (Login, Saludo y Carrito) -->
         <div id="esquinaSupDer">
             {% if session.get('nombre_usuario') %}
-                <!-- Si hay sesión activa: Muestra saludo y botón de salida con clases CSS -->
-                <div class="userLoggedInfo">
-                    <span>Hola, {{ session['nombre_usuario'] }}</span>
-                </div>
-                
-                <a href="{{ url_for('auth.logout') }}" title="Cerrar Sesión">
-                    <button class="btnLogout" title="Cerrar Sesión">
-                        <i class="bi bi-box-arrow-right usuario iconLogout"></i>
-                    </button>
-                </a>
+            <!-- Si hay sesión activa: Muestra saludo y botón de salida con clases CSS -->
+            <div class="userLoggedInfo">
+                <span>Hola, {{ session['nombre_usuario'] }}</span>
+            </div>
+
+            <a href="{{ url_for('auth.logout') }}" title="Cerrar Sesión">
+                <button class="btnLogout" title="Cerrar Sesión">
+                    <i class="bi bi-box-arrow-right usuario iconLogout"></i>
+                </button>
+            </a>
             {% else %}
-                <!-- Si NO hay sesión activa: Muestra el botón habitual de login -->
-                <a href="{{ url_for('login') }}" title="Iniciar Sesión / Registrarse">
-                    <button>
-                        <i class="bi bi-person-fill usuario"></i>
-                    </button>
-                </a>
+            <!-- Si NO hay sesión activa: Muestra el botón habitual de login -->
+            <a href="{{ url_for('login') }}" title="Iniciar Sesión / Registrarse">
+                <button>
+                    <i class="bi bi-person-fill usuario"></i>
+                </button>
+            </a>
             {% endif %}
 
             <!-- Carrito de compras -->
@@ -81,29 +81,30 @@
         </div>
 
         <!-- Botones de Categorías en el Header -->
+        <!-- Botones de Categorías en el Header -->
         <section id="categorias">
-            <a href="{{ url_for('categoria_mouses') }}">
+            <a href="{{ url_for('categorias.categoria_mouses') }}">
                 <button class="categoriaNegro">
                     <p>Mouses</p>
                     <img src="{{ url_for('static', filename='images/header/categorias/mause seccion.gif') }}"
                         alt="mousesSeccion">
                 </button>
             </a>
-            <a href="{{ url_for('categoria_teclados') }}">
+            <a href="{{ url_for('categorias.categoria_teclados') }}">
                 <button class="categoriaGrafito">
                     <p>Teclados</p>
                     <img src="{{ url_for('static', filename='images/header/categorias/Teclados seccion.gif') }}"
                         alt="tecladosSeccion">
                 </button>
             </a>
-            <a href="{{ url_for('categoria_diademas') }}">
+            <a href="{{ url_for('categorias.categoria_diademas') }}">
                 <button class="categoriaNegro">
                     <p>Diademas</p>
                     <img src="{{ url_for('static', filename='images/header/categorias/diademas seccion.gif') }}"
                         alt="diademasSeccion">
                 </button>
             </a>
-            <a href="{{ url_for('categoria_sillas') }}">
+            <a href="{{ url_for('categorias.categoria_sillas') }}">
                 <button class="categoriaGrafito">
                     <p>Sillas</p>
                     <img src="{{ url_for('static', filename='images/header/categorias/sillas gamer seccion.gif') }}"
@@ -117,37 +118,26 @@
     <main>
         <section id="vistaProducto">
             <div id="imagenProducto">
-                <img src="{{ url_for('static', filename='images/main/MouseGamer(Ejemplo).jpg') }}" alt="producto">
+                <!-- Imagen dinámica del producto -->
+                <img src="{{ url_for('static', filename=producto['imagen']) }}" alt="{{ producto['producto'] }}">
             </div>
 
             <div id="informacionProducto" class="cardContenido">
-                <h3>Nombre del producto</h3>
-                <h2>XXX.XXX.XXX,XX$</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur<br>
-                    adipiscing elit, sed do eiusmod tempor<br>
-                    incididunt ut labore et dolore magna<br>
-                    aliqua.<br>
-                    <br>
-                    Ut enim ad minim veniam, quis nostrud <br>
-                    exercitation ullamco laboris nisi ut aliquip<br>
-                    ex ea commodo consequat. Duis aute<br>
-                    irure dolor in reprehenderit in voluptate<br>
-                    velit esse cillum dolore eu fugiat nulla<br>
-                    pariatur.<br>
-                    <br>
-                    Excepteur sint occaecat cupidatat <br>
-                    proident, sunt in culpa qui officia deserunt<br>
-                    mollit anim id est laborum.
-                </p>
+                <!-- Nombre dinámico -->
+                <h3>{{ producto['producto'] }}</h3>
+                <!-- Precio dinámico -->
+                <h2>{{ producto['precio'] }} $</h2>
+                <!-- Descripción dinámica -->
+                <p>{{ producto['descripcion'] }}</p>
             </div>
+
             <div class="cardContenido">
                 <div id="selectorCantidad">
                     <h2>seleccione la cantidad</h2>
-
                     <div id="botonesCantidad">
-                        <button id ="btnMenos" class="btnsStylesCant">-</button>
-                        <span id ="cantidad">1</span>
-                        <button id ="btnMas" class="btnsStylesCant">+</button>
+                        <button id="btnMenos" class="btnsStylesCant">-</button>
+                        <span id="cantidad">1</span>
+                        <button id="btnMas" class="btnsStylesCant">+</button>
                     </div>
                 </div>
 
@@ -155,62 +145,31 @@
                 <button id="agregarCarrito" class="botonesPrincipales">Agregar al carrito</button>
 
                 <div id="masInfo">
-                    <p><i class="bi bi-box-seam-fill icon" id="marron"></i> quedan <span id ="stock">1</span> en stock</p>
+                    <!-- Stock dinámico extraído de la columna 'cantidad' de la BD -->
+                    <p><i class="bi bi-box-seam-fill icon" id="marron"></i> quedan <span id="stock">{{
+                            producto['cantidad'] }}</span> en stock</p>
                     <p><i class="bi bi-patch-check-fill icon" id="verde"></i> pagos seguros</p>
                     <p><i class="bi bi-car-front-fill icon" id="rojo"></i> envios en Bogota</p>
                 </div>
             </div>
         </section>
 
+        <!-- Sección inferior con tarjetas de productos relacionados -->
         <section id="productos">
-
-            <a href="{{ url_for('producto_vista') }}">
+            {% for prod in relacionados %}
+            <a href="{{ url_for('categorias.producto_vista', id_producto=prod['id_producto']) }}">
                 <div class="productoCard">
                     <div class="productoContenido">
-                        <img src="{{ url_for('static', filename='images/main/MouseGamer(Ejemplo).jpg') }}"
-                            alt="mouseEjemplo">
-                        <h4>nombre del producto</h4>
-                        <p>XXX.XXX.XXX,XX $</p>
+                        <img src="{{ url_for('static', filename=prod['imagen']) }}" alt="{{ prod['producto'] }}">
+                        <h4>{{ prod['producto'] }}</h4>
+                        <p>{{ prod['precio'] }} $</p>
                     </div>
                 </div>
             </a>
-
-            <a href="{{ url_for('producto_vista') }}">
-                <div class="productoCard">
-                    <div class="productoContenido">
-                        <img src="{{ url_for('static', filename='images/main/MouseGamer(Ejemplo).jpg') }}"
-                            alt="mouseEjemplo">
-                        <h4>nombre del producto</h4>
-                        <p>XXX.XXX.XXX,XX $</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="{{ url_for('producto_vista') }}">
-                <div class="productoCard">
-                    <div class="productoContenido">
-                        <img src="{{ url_for('static', filename='images/main/MouseGamer(Ejemplo).jpg') }}"
-                            alt="mouseEjemplo">
-                        <h4>nombre del producto</h4>
-                        <p>XXX.XXX.XXX,XX $</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="{{ url_for('producto_vista') }}">
-                <div class="productoCard">
-                    <div class="productoContenido">
-                        <img src="{{ url_for('static', filename='images/main/MouseGamer(Ejemplo).jpg') }}"
-                            alt="mouseEjemplo">
-                        <h4>nombre del producto</h4>
-                        <p>XXX.XXX.XXX,XX $</p>
-                    </div>
-                </div>
-            </a>
-
+            {% endfor %}
         </section>
-
     </main>
+    
     <footer>
         <section id="moreInfo">
             <h5>
