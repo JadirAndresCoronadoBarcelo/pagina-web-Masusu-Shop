@@ -28,7 +28,7 @@
     <div class="auth-container">
         <!-- Tarjeta principal de autenticación -->
         <div class="auth-card">
-            
+
             <!-- Logo y Cabecera -->
             <div class="auth-header">
                 <img src="{{ url_for('static', filename='images/header/MasusuShop_LOGO.png') }}" alt="Masusu Shop Logo">
@@ -42,35 +42,35 @@
             </div>
 
             <!-- Formulario de Iniciar Sesión -->
-            <form id="login-form" class="auth-form active">
+            <!-- Formulario de Iniciar Sesión -->
+            <form id="login-form" class="auth-form active" action="/iniciar_sesion" method="POST">
                 <div class="input-group">
                     <i class="bi bi-envelope-fill"></i>
-                    <input type="email" placeholder="Correo electrónico" required>
+                    <input type="email" name="correo" placeholder="Correo electrónico" required>
                 </div>
                 <div class="input-group">
                     <i class="bi bi-lock-fill"></i>
-                    <input type="password" placeholder="Contraseña" required>
+                    <input type="password" name="contrasena" placeholder="Contraseña" required>
                 </div>
                 <button type="submit" class="btn-submit">Entrar</button>
             </form>
 
             <!-- Formulario de Registro -->
-            <form id="register-form" class="auth-form">
+            <form id="register-form" class="auth-form" action="/registro" method="POST">
                 <div class="input-group">
                     <i class="bi bi-person-fill"></i>
-                    <input type="text" placeholder="Nombre completo" required>
+                    <input type="text" name="nombre" placeholder="Nombre completo" required>
                 </div>
                 <div class="input-group">
                     <i class="bi bi-envelope-fill"></i>
-                    <input type="email" placeholder="Correo electrónico" required>
+                    <input type="email" name="correo" placeholder="Correo electrónico" required>
                 </div>
                 <div class="input-group">
                     <i class="bi bi-lock-fill"></i>
-                    <input type="password" placeholder="Contraseña" required>
+                    <input type="password" name="contrasena" placeholder="Contraseña" required>
                 </div>
                 <button type="submit" class="btn-submit">Crear Cuenta</button>
             </form>
-
             <!-- Enlace para volver al inicio -->
             <div class="auth-footer">
                 <a href="{{ url_for('menu_principal') }}"><i class="bi bi-arrow-left"></i> Volver a la tienda</a>

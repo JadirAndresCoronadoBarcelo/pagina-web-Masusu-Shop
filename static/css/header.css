@@ -129,6 +129,7 @@ header{
     color: var(--gris-claro);
     font-size: 25px;
 }
+
 #esquinaSupDer button{
 height: 50px;
 width: 50px;
@@ -147,6 +148,34 @@ transition: transform 0.2s ease;
 #esquinaSupDer button:hover{
     transform: scale(1.1);
     background-color: var(--grafito);
+}
+
+/* --- ESTILOS PARA LA SESIÓN DE USUARIO EN EL HEADER --- */
+
+/* Contenedor que alinea el saludo del usuario junto a los botones */
+.userLoggedInfo {
+    display: flex;
+    align-items: center;
+    text-align: right;
+    color: var(--gris-claro);
+    margin-right: 15px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Estilo específico para el botón de cerrar sesión (diferenciado con tono vino) */
+.btnLogout {
+    background-color: var(--negro-carbon) !important;
+}
+
+.btnLogout:hover {
+    background-color: var(--rojo-vino) !important;
+}
+
+.iconLogout {
+    font-size: 22px;
+    color: var(--gris-claro);
 }
 /* fin de los botones del la esquina superior derecha */
 

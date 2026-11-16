@@ -1,6 +1,11 @@
 from flask import Flask, render_template
+from auth import auth_bp  # <--- 1. Importas el Blueprint
 
 app = Flask(__name__)
+app.secret_key = 'clave_secreta_masusu_shop'  # <--- 2. Necesario para las sesiones
+
+# <--- 3. Registras el Blueprint en la app principal
+app.register_blueprint(auth_bp)
 
 # Ruta para el menú principal (página de inicio)
 @app.route('/')
@@ -8,7 +13,7 @@ app = Flask(__name__)
 def menu_principal():
     return render_template('MenuPrincipal.html')
 
-# Ruta para el login de usuarios
+# Ruta para el login de usuarios (Muestra la vista HTML)
 @app.route('/login')
 def login():
     return render_template('login.html')
@@ -23,7 +28,7 @@ def carrito():
 def producto_vista():
     return render_template('productoVista.html')
 
-# Rutas para cada una de tus categorías (según tus archivos HTML)
+# Rutas para cada una de tus categorías 
 @app.route('/categoria/mouses')
 def categoria_mouses():
     return render_template('categoriaMouses.html')
