@@ -3,7 +3,7 @@
     const botonIzq = document.getElementById('flechaIzq');
     
     let currentIndex = 0;
-    const totalSlides = 3; // Tenemos 3 ofertas originales (sin contar la duplicada)
+    const totalSlides = 3; // Tenemos 3 ofertas originales 
 
     // 1. Desactivamos la animación automática de CSS para dar el control total a los botones
     carruselPista.style.animation = 'none';

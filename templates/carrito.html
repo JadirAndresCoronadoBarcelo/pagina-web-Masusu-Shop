@@ -19,16 +19,16 @@
     <!-- estilos -->
 
     <!-- grid -->
-    <link rel="stylesheet" href="../static/css/grid.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/grid.css') }}">
 
     <!-- header -->
-    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
 
     <!-- main -->
-    <link rel="stylesheet" href="../static/css/carrito/main.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/carrito/main.css') }}">
 
     <!-- footer -->
-    <link rel="stylesheet" href="../static/css/footer.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
 
     <!-- fin de los estilos -->
 
@@ -73,8 +73,8 @@
                 </a>
             {% endif %}
 
-            <!-- Carrito de compras -->
-            <a href="{{ url_for('carrito') }}">
+            <!-- Carrito de compras (Actualizado con el Blueprint carrito.ver_carrito) -->
+            <a href="{{ url_for('carrito.ver_carrito') }}">
                 <button><i class="bi bi-cart-fill carrito"></i></button>
             </a>
         </div>
@@ -115,44 +115,62 @@
 
     <main>
         <section id="vistaProductos">
-
             <table>
-                <tr>
-                    <th></th>
-                    <th>producto</th>
-                    <th>cantidad</th>
-                    <th>subtotal</th>
-                </tr>
-                <tbody>
+                <thead>
                     <tr>
-                        <td><img src="{{ url_for('static', filename='images/main/MouseGamer(Ejemplo).jpg') }}"
-                                alt="producto" class="productoImg"></td>
-                        <td>product name</td>
-                        <td>x</td>
-                        <td>XXX.XXX.XXX,XX$</td>
+                        <th></th>
+                        <th>producto</th>
+                        <th>cantidad</th>
+                        <th>subtotal</th>
+                        <th>eliminar</th>
                     </tr>
-
-
+                </thead>
+                <tbody>
+                    <!-- Bucle que pinta cada producto del carrito o muestra mensaje si está vacío -->
+                    {% for item in productos %}
+                    <tr>
+                        <td>
+                            <img src="{{ url_for('static', filename=item['imagen']) }}" alt="{{ item['producto'] }}" class="productoImg">
+                        </td>
+                        <td>{{ item['producto'] }}</td>
+                        <td>{{ item['cantidad'] }}</td>
+                        <td>{{ item['subTotal'] }} $</td>
+                        <td>
+                            <!-- Formulario individual para eliminar este producto -->
+                            <form action="{{ url_for('carrito.eliminar_producto', id_producto=item['id_producto']) }}" method="POST" style="display:inline;">
+                                <button type="submit" title="Eliminar producto" style="background: none; border: none; cursor: pointer; color: var(--rojo-neon); font-size: 22px; transition: transform 0.2s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                    <i class="bi bi-trash3-fill"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td id="carritoVacio">Tu carrito está vacío actualmente.</td>
+                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </section>
 
         <section id="factura">
-
             <ul>
-                <li>producto:XXX.XXX.XXX,XX$ = TOTAL</li>
-                <li>producto:XXX.XXX.XXX,XX$ = TOTAL</li>
+                <!-- Desglose dinámico en la factura -->
+                {% for item in productos %}
+                <li>{{ item['producto'] }}: {{ item['subTotal'] }}$ = TOTAL</li>
+                {% endfor %}
             </ul>
 
             <div>
-                <p id="totalCompra">TOTAL: XXX.XXX.XXX,XX</p>
+                <!-- Total global calculado desde la base de datos -->
+                <p id="totalCompra">TOTAL: {{ total_carrito }} $</p>
                 <button id="pagarAhora">
                     Pagar ahora
                 </button>
             </div>
         </section>
-
     </main>
+
     <footer>
         <section id="moreInfo">
             <h5>
@@ -166,33 +184,22 @@
         </section>
 
         <section id="contactos">
-
             <div class="redes">
-
                 <i class="bi bi-telephone-fill logoRed"></i>
                 <p>+57 3XX XXX XXXX</p>
-
             </div>
-
             <div class="redes">
-
                 <i class="bi bi-instagram logoRed"></i>
                 <p>@instagram.page</p>
-
             </div>
-
             <div class="redes">
-
                 <i class="bi bi-facebook logoRed"></i>
                 <p>facebook page</p>
             </div>
-
             <div class="redes">
-
                 <i class="bi bi-envelope-fill logoRed"></i>
                 <p>correo@dominio.com</p>
             </div>
-
         </section>
 
         <section id="copyright">

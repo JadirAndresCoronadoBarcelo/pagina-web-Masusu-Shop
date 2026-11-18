@@ -3,12 +3,12 @@ import sqlite3
 
 from auth import auth_bp            
 from categorias import categorias_bp 
+from carrito import carrito_bp      
 
 app = Flask(__name__)
 app.secret_key = 'clave_secreta_masusu_shop'
 DATABASE = 'masusuDatabase.db'
 
-# Funciones de SQLite para el main
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
@@ -22,9 +22,10 @@ def close_connection(exception):
     if db is not None:
         db.close()
 
-# Registras ambos Blueprints
+# Registras todos tus Blueprints de manera ordenada
 app.register_blueprint(auth_bp)
 app.register_blueprint(categorias_bp)
+app.register_blueprint(carrito_bp) 
 
 # Ruta para el menú principal (con consulta de 16 productos variados)
 @app.route('/')
@@ -40,11 +41,6 @@ def menu_principal():
 @app.route('/login')
 def login():
     return render_template('login.html')
-
-# Ruta para el carrito de compras
-@app.route('/carrito')
-def carrito():
-    return render_template('carrito.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

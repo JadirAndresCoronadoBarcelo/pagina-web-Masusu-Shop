@@ -75,7 +75,7 @@
             {% endif %}
 
             <!-- Carrito de compras -->
-            <a href="{{ url_for('carrito') }}">
+            <a href="{{ url_for('carrito.ver_carrito') }}">
                 <button><i class="bi bi-cart-fill carrito"></i></button>
             </a>
         </div>
@@ -131,27 +131,32 @@
                 <p>{{ producto['descripcion'] }}</p>
             </div>
 
-            <div class="cardContenido">
-                <div id="selectorCantidad">
-                    <h2>seleccione la cantidad</h2>
-                    <div id="botonesCantidad">
-                        <button id="btnMenos" class="btnsStylesCant">-</button>
-                        <span id="cantidad">1</span>
-                        <button id="btnMas" class="btnsStylesCant">+</button>
+            <form action="{{ url_for('carrito.agregar_carrito', id_producto=producto['id_producto']) }}" method="POST">
+                <div class="cardContenido">
+                    <div id="selectorCantidad">
+                        <h2>seleccione la cantidad</h2>
+                        <div id="botonesCantidad">
+                            <!-- Importante: type="button" evita que estos botones envíen el formulario por error -->
+                            <button type="button" id="btnMenos" class="btnsStylesCant">-</button>
+                            <span id="cantidad">1</span>
+                            <button type="button" id="btnMas" class="btnsStylesCant">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Input oculto que enviará la cantidad real a Flask -->
+                    <input type="hidden" name="cantidad" id="inputCantidad" value="1">
+
+                    <button type="button" id="comprarAhora" class="botonesPrincipales">Comprar ahora</button>
+                    <button type="submit" id="agregarCarrito" class="botonesPrincipales">Agregar al carrito</button>
+
+                    <div id="masInfo">
+                        <p><i class="bi bi-box-seam-fill icon" id="marron"></i> quedan <span id="stock">{{
+                                producto['cantidad'] }}</span> en stock</p>
+                        <p><i class="bi bi-patch-check-fill icon" id="verde"></i> pagos seguros</p>
+                        <p><i class="bi bi-car-front-fill icon" id="rojo"></i> envios en Bogota</p>
                     </div>
                 </div>
-
-                <button id="comprarAhora" class="botonesPrincipales">Comprar ahora</button>
-                <button id="agregarCarrito" class="botonesPrincipales">Agregar al carrito</button>
-
-                <div id="masInfo">
-                    <!-- Stock dinámico extraído de la columna 'cantidad' de la BD -->
-                    <p><i class="bi bi-box-seam-fill icon" id="marron"></i> quedan <span id="stock">{{
-                            producto['cantidad'] }}</span> en stock</p>
-                    <p><i class="bi bi-patch-check-fill icon" id="verde"></i> pagos seguros</p>
-                    <p><i class="bi bi-car-front-fill icon" id="rojo"></i> envios en Bogota</p>
-                </div>
-            </div>
+            </form>
         </section>
 
         <!-- Sección inferior con tarjetas de productos relacionados -->
@@ -169,7 +174,7 @@
             {% endfor %}
         </section>
     </main>
-    
+
     <footer>
         <section id="moreInfo">
             <h5>

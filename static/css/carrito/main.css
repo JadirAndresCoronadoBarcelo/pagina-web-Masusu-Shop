@@ -105,14 +105,33 @@ tbody tr td {
     width: 100px;
     align-items: center;
 }
+/* Contenedor de la tabla con scroll vertical */
+#vistaProductos {
+    grid-area: left;
+    max-height: 75vh; /* Limita la altura para que aparezca la barra deslizante */
+    overflow-y: auto; /* Habilita la barra de desplazamiento vertical */
+    overflow-x: hidden;
+}
 
+/* Opcional: Hacer que los encabezados de la tabla se queden fijos arriba al hacer scroll */
 #vistaProductos table {
-    margin: 40px;
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0; /* Ajustamos el margen para que no genere espacios raros con el scroll */
+}
+
+#vistaProductos table thead th {
+    position: sticky;
+    top: 0;
+    background-color: #E0E0E0; /* Color de fondo para que no se traspase el texto al hacer scroll */
+    z-index: 10;
+    padding: 15px 0;
+    border-bottom: 2px solid var(--grafito);
 }
 
 #vistaProductos table tr th {
     border-right: 1px solid var(--gris-apagado);
-    width: 250px;
+    width: 200px;
     text-align: center;
     color: var(--grafito);
 }
@@ -120,4 +139,12 @@ tbody tr td {
 #vistaProductos tbody tr td {
     text-align: center;
     border-right: 1px solid var(--gris-apagado);
+    border-bottom: 1px solid var(--gris-apagado);
+    padding: 10px;
+}
+
+#carritoVacio {
+    text-align: center;
+    padding: 20px;
+    color: var(--negro-carbon);
 }
